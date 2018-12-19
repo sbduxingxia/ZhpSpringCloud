@@ -3,6 +3,7 @@ package com.zhp.springcloud.consumer.controller;
 import com.zhp.springcloud.consumer.client.DemoServiceClient;
 import com.zhp.springcloud.consumer.client.UserServiceClient;
 import com.zhp.springcloud.server.api.dto.ReqDemo;
+import com.zhp.springcloud.server.api.dto.ReqObject;
 import com.zhp.springcloud.server.api.res.ResDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
  * @date 2018/12/17.
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/demo")
 public class DemoController {
     @Autowired
     private DemoServiceClient demoServiceClient;
@@ -39,6 +40,12 @@ public class DemoController {
     @ResponseBody
     public ResDemo getUser(String id) {
         return userServiceClient.getUser(id);
+    }
+
+    @RequestMapping("/helloReqObj")
+    @ResponseBody
+    public ResDemo helloObj(@RequestBody ReqObject<ReqDemo> reqDemo) {
+        return demoServiceClient.helloReqObj(reqDemo);
     }
 
 }

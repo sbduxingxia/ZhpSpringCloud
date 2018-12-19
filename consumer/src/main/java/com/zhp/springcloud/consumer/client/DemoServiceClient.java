@@ -2,6 +2,7 @@ package com.zhp.springcloud.consumer.client;
 
 import com.zhp.springcloud.server.api.DemoService;
 import com.zhp.springcloud.server.api.dto.ReqDemo;
+import com.zhp.springcloud.server.api.dto.ReqObject;
 import com.zhp.springcloud.server.api.res.ResDemo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,4 +26,7 @@ public interface DemoServiceClient {
 
     @RequestMapping("/helloList")
     ResDemo helloList(@RequestBody List<ReqDemo> reqDemo);
+
+    @RequestMapping("/helloReqObj")
+    ResDemo helloReqObj(@RequestBody ReqObject<ReqDemo> reqDemo);
 }

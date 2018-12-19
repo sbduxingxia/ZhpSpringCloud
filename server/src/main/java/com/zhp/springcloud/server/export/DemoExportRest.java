@@ -2,6 +2,7 @@ package com.zhp.springcloud.server.export;
 
 import com.zhp.springcloud.server.api.DemoService;
 import com.zhp.springcloud.server.api.dto.ReqDemo;
+import com.zhp.springcloud.server.api.dto.ReqObject;
 import com.zhp.springcloud.server.api.res.ResDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,6 +38,13 @@ public class DemoExportRest{
     @ResponseBody
     public ResDemo helloList(@RequestBody List<ReqDemo> reqDemos) {
         return demoService.helloList(reqDemos);
+    }
+
+
+    @RequestMapping("/helloReqObj")
+    @ResponseBody
+    public ResDemo helloReqObject(@RequestBody ReqObject<ReqDemo> reqDemo) {
+        return demoService.helloObject(reqDemo.getBody());
     }
 
 }

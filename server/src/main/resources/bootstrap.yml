@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: demo-server
+      server:
+        git:
+          url: https://gitee.com/sbduxingxia/spring-cloud-config
+          search-paths: /**
+      label: master
+      username: s854622619@163.com
+      password: aiwo19871002

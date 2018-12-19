@@ -1,12 +1,14 @@
 package com.zhp.springcloud.server.api.dto.page;
 
+import com.zhp.springcloud.server.api.dto.ReqBase;
+
 import java.io.Serializable;
 
 /**
  * @author zhp.dts
  * @date 2018/12/19.
  */
-public class ReqPage implements Serializable {
+public class ReqPage extends ReqBase implements Serializable {
     private int pageSize=10;
     private int pageNo=0;
     private long totalNum;
