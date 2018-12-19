@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zhp.springcloud</groupId>
+    <artifactId>parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <properties >
+        <spring.cloud.denpendencies.version>Finchley.RELEASE</spring.cloud.denpendencies.version>
+        <spring.cloud.starter.eureka.version>1.4.6.RELEASE</spring.cloud.starter.eureka.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.zhp.springcloud</groupId>
+                <artifactId>server-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.denpendencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-eureka</artifactId>
+                <version>${spring.cloud.starter.eureka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+                <version>${spring.cloud.starter.eureka.version}</version>
+            </dependency>
+            <!--<dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-config</artifactId>
+                <version>${sprint.cloud.config.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-eureka-server</artifactId>
+                <version>${spring.cloud.starter.eureka.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <spring.active>dev</spring.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <spring.active>prod</spring.active>
+            </properties>
+        </profile>
+    </profiles>
+    <modules>
+        <module>../server</module>
+        <module>../server-api</module>
+        <module>../eureka-register-center</module>
+    </modules>
+</project>

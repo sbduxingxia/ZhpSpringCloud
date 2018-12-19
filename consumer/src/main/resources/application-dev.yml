@@ -1,0 +1,14 @@
+#配置端口
+server:
+  port: 8002
+spring:
+  application:
+    name: demo-consumer
+#配置为Eureka的服务端-服务注册中心
+eureka:
+  instance:
+    hostname: Eureka-Consumer
+  client:
+    #Eureka客户端将要注册的注册中心的地址
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
