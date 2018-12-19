@@ -1,8 +1,10 @@
 package com.zhp.springcloud.server.impl;
 
+import com.zhp.springcloud.dao.UserDao;
 import com.zhp.springcloud.server.api.DemoService;
 import com.zhp.springcloud.server.api.dto.ReqDemo;
 import com.zhp.springcloud.server.api.res.ResDemo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +15,8 @@ import java.util.List;
  */
 @Service
 public class DemoServiceImpl implements DemoService {
+    @Autowired
+    private UserDao userDao;
     @Override
     public String helloWorld(String name) {
         return "DemoService say : hello "+name;
@@ -39,4 +43,5 @@ public class DemoServiceImpl implements DemoService {
         resDemo.setCode("userIds is "+userIds);
         return resDemo;
     }
+
 }

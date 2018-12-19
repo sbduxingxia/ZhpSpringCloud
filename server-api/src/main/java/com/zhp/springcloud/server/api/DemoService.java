@@ -15,4 +15,6 @@ public interface DemoService {
     ResDemo helloObject(ReqDemo demoObject);
 
     ResDemo helloList(List<ReqDemo> demoObject);
+
+
 }
